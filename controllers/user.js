@@ -19,7 +19,7 @@ addUser = function(req, res){
 	var newUser = new User({
 		username: 	req.body.username,
 		password: 	req.body.password,
-		roles: 	    'Read',
+		roles: 	    'ReadWrite', //Pending review 
 		dateCreate: gdateCreate,
 		dateUpdate: gdateUpdate, 
 		language:   'ES', //Pending review 
