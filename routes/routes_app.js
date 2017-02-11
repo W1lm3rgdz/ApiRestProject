@@ -25,7 +25,7 @@ router.get('/',function(req, res){
 
 //User
 router.route('/user/addUser')
-.get(authController.isAuthenticated, userController.addUser);
+.post(userController.addUser);
 
 router.route('/user/searchAllUser')
 .get(authController.isAuthenticated, userController.searchAllUser);

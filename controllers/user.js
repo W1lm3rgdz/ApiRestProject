@@ -19,10 +19,11 @@ addUser = function(req, res){
 	var newUser = new User({
 		username: 	req.body.username,
 		password: 	req.body.password,
+		roles: 	    'Read',
 		dateCreate: gdateCreate,
 		dateUpdate: gdateUpdate, 
 		language:   'ES', //Pending review 
-		status: 'Enable'
+		status:     'Enable'
 	}); 
 	
 	newUser.save(function(err){
