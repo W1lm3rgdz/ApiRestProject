@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //Middleware load
 app.use(passport.initialize());//Use the passport package
-//app.use('/api',route_app);//Register all our routes with /api
+app.use('/api',route_app);//Register all our routes with /api
 
 //We create access to the database mydb
 mongoose.connect('mongodb://localhost/mydb', function(err){
@@ -38,11 +38,6 @@ mongoose.connect('mongodb://localhost/mydb', function(err){
 		console.log('connection error!!!');
 	}
 });
-
-//Test dummy hello world
-//app.get('/',function(req, res){	
-//	res.send('Helo World');
-//});
 
 app.listen(port);
 
