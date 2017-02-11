@@ -18,6 +18,11 @@ var authController   = require('../controllers/oauthController');
 //Create Express Router
 var router = express.Router();
 
+
+router.get('/',function(req, res){
+	res.json({message: "hello node"});
+});
+
 //User
 router.route('/user/addUser')
 .get(authController.isAuthenticated, userController.addUser);
