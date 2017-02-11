@@ -19,8 +19,18 @@ var passport   = require('passport');
 //Definition of global variables
 var app = express(); //we create express aplication	
 var port = process.env.port || 3000; //use port 3000 by default 
-app.use(bodyParser.json()); //Use the body-parser package in our application
+app.use(bodyParser.json()); //Use the body-parser package
 app.use(bodyParser.urlencoded({extended: true}));
+
+//We create access to the database mydb
+mongoose.connect('mongodb://localhost/mydb', function(err){
+	if(!err){
+		console.log('connection successfully!!!');
+	}
+	else {
+		console.log('connection error!!!');
+	}
+});
 
 //Test dummy hello world
 app.get('/',function(req, res){	
