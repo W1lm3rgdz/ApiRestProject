@@ -22,7 +22,7 @@ var ClientSchema = new mongoose.Schema({
 });
 
 /*
-//Execute before each user.save() call
+//Execute before each client.save() call
 ClientSchema.pre('save', function(callback) {
   var client = this;
 
@@ -50,3 +50,4 @@ ClientSchema.pre('save', function(callback) {
 
 // Export the Mongoose model
 module.exports = mongoose.model('Client', ClientSchema);
+

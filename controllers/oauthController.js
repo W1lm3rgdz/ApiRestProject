@@ -11,6 +11,7 @@
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
 var User = require('../models/user');
+var Client = require('../models/clientOauth2');
 
 passport.use(new BasicStrategy(
   function(username, password, callback) {
@@ -34,4 +35,23 @@ passport.use(new BasicStrategy(
   }
 ));
 
+passport.use(new BasicStrategy(
+  function(username, password, callback) {
+    Client.findOne({ username: username }, function (err, client) {
+      if (err) { return callback(err); }
+
+      // No user found with that username
+      if (!user) { return callback(null, false); }
+
+      // No client found with that id or bad password
+      if (!client || client.secret !== password) { 
+    	  return callback(null, false); 
+      }
+      // Success
+      return callback(null, client);      
+    });
+  }
+));
+
 exports.isAuthenticated = passport.authenticate('basic', { session : false });
+exports.isClientAuthenticated = passport.authenticate('client-basic', { session : false });
