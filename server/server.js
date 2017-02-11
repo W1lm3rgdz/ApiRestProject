@@ -22,6 +22,10 @@ var port = process.env.port || 3000; //use port 3000 by default
 app.use(bodyParser.json()); //Use the body-parser package
 app.use(bodyParser.urlencoded({extended: true}));
 
+//Middleware load
+app.use(passport.initialize());//Use the passport package
+
+
 //We create access to the database mydb
 mongoose.connect('mongodb://localhost/mydb', function(err){
 	if(!err){
