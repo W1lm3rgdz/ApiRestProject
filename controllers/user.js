@@ -48,6 +48,7 @@ searchAllUser = function(req, res){
 	});
 }
 
+/*
 //GET: Search by id user
 searchByIdUser = function(req, res){
 	User.findById(req.params.id,function(err,user){
@@ -93,8 +94,9 @@ removeUser = function(req, res){
 	});
 }
 
+*/
 exports.addUser        = addUser;
 exports.searchAllUser  = searchAllUser;
-exports.searchByIdUser = searchByIdUser; 
-exports.updateUser     = updateUser;
-exports.removeUser     = removeUser;
+//exports.searchByIdUser = searchByIdUser; 
+//exports.updateUser     = updateUser;
+//exports.removeUser     = removeUser;
