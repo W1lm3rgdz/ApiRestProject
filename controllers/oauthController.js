@@ -37,6 +37,7 @@ passport.use(new BasicStrategy(
   }
 ));
 
+
 passport.use(new BasicStrategy(
   function(username, password, callback) {
     Client.findOne({ username: username }, function (err, client) {
@@ -56,7 +57,7 @@ passport.use(new BasicStrategy(
 ));
 
 
-
+/*
 passport.use(new BearerStrategy(
 	function(accessToken, callback) {
 		Token.findOne({value: accessToken }, function (err, token) {
@@ -85,6 +86,8 @@ passport.use(new BearerStrategy(
 		});
 	}
 ));
+*/
+
 
 exports.isAuthenticated = passport.authenticate('basic', { session : false });
 exports.isClientAuthenticated = passport.authenticate('client-basic', { session : false });

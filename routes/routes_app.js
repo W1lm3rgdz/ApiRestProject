@@ -44,4 +44,9 @@ router.route('/clients')
 .post(authController.isAuthenticated, clientController.addClient)
 .get(authController.isAuthenticated, clientController.searchAllClient);
 
+//login
+router.get("/login",function(req,res){
+    res.render("login");
+});
+
 module.exports = router;
