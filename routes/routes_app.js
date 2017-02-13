@@ -20,7 +20,7 @@ var clientController = require('../controllers/clientOauth2');
 var router = express.Router();
 
 router.get('/',function(req, res){
-	res.json({message: "hello node"});
+	res.render('index',{message: "hello node"});
 });
 
 //User
