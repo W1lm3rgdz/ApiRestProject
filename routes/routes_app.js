@@ -13,7 +13,7 @@
 //Load packages required
 var express          = require('express');
 var userController   = require('../controllers/user');
-var authController   = require('../controllers/oauthController');
+var authController   = require('../controllers/auth');
 var clientController = require('../controllers/clientOauth2');
 
 //Create Express Router
