@@ -8,7 +8,7 @@
 
 
 // Load required packages
-var Client = require('../models/clientOauth2');
+var Client = require('../models/client');
 
 // Create endpoint /api/client for POST
 addClient = function(req, res) {

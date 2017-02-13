@@ -14,7 +14,7 @@
 var express          = require('express');
 var userController   = require('../controllers/user');
 var authController   = require('../controllers/auth');
-var clientController = require('../controllers/clientOauth2');
+var clientController = require('../controllers/client');
 
 //Create Express Router
 var router = express.Router();
