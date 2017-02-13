@@ -15,6 +15,7 @@ var express    = require('express');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser'); 
 var passport   = require('passport');
+var session    = require('express-session');
 
 //Definition modular routes
 var route_app  = require('../routes/routes_app');  
@@ -24,6 +25,13 @@ var app = express(); //we create express aplication
 var port = process.env.port || 3000; //use port 3000 by default 
 app.use(bodyParser.json()); //Use the body-parser package
 app.use(bodyParser.urlencoded({extended: true}));
+
+//Use express session support since OAuth2orize requires it
+app.use(session({
+  secret: 'Super Secret Session Key',
+  saveUninitialized: true,
+  resave: true
+}));
 
 //Middleware load
 app.use(passport.initialize());//Use the passport package
