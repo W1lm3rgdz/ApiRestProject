@@ -16,12 +16,11 @@ var userController   = require('../controllers/user');
 var authController   = require('../controllers/oauthController');
 var clientController = require('../controllers/clientOauth2');
 
-
 //Create Express Router
 var router = express.Router();
 
 router.get('/',function(req, res){
-	res.json({message: "hello node"});
+	res.render('index',{message: "hello node"});
 });
 
 //User
@@ -44,6 +43,5 @@ router.route('/user/removeUser/:id')
 router.route('/clients')
 .post(authController.isAuthenticated, clientController.addClient)
 .get(authController.isAuthenticated, clientController.searchAllClient);
-
 
 module.exports = router;

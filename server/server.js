@@ -28,6 +28,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Middleware load
 app.use(passport.initialize());//Use the passport package
 app.use('/api',route_app);//Register all our routes with /api
+app.set('view engine','pug');
+app.use(express.static("public"));//Pass static files: css, javascript
 
 //We create access to the database mydb
 mongoose.connect('mongodb://localhost/mydb', function(err){
