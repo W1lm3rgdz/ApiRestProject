@@ -21,7 +21,7 @@ var oauth2Controller = require('../controllers/oauth2');
 var router = express.Router();
 
 router.get('/',function(req, res){
-	res.render('index',{message: "hello node"});
+
 });
 
 //Create endpoint handlers for /users
@@ -42,28 +42,5 @@ router.route('/api/oauth2/authorize')
 //Create endpoint handlers for oauth2 token
 router.route('/api/oauth2/token')
   .post(authController.isClientAuthenticated, oauth2Controller.token);
-
-/*
-//User
-router.route('/user/addUser')
-.post(userController.addUser);
-
-router.route('/user/searchAllUser')
-.get(authController.isAuthenticated, userController.searchAllUser);
-
-router.route('/user/searchByIdUser/:id')
-.get(authController.isAuthenticated, userController.searchByIdUser);
-
-router.route('/user/updateUser/:id')
-.put(authController.isAuthenticated, userController.updateUser);
-
-router.route('/user/removeUser/:id')
-.delete(authController.isAuthenticated, userController.removeUser);
-
-//Create endpoint handlers for /clients
-router.route('/clients')
-.post(authController.isAuthenticated, clientController.addClient)
-.get(authController.isAuthenticated, clientController.searchAllClient);
-*/
 
 module.exports = router;
